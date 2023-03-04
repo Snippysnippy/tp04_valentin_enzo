@@ -71,5 +71,4 @@ export class FormulaireSaisieClientComponent implements OnInit {
   changeRecap (val : boolean) {
     this.recap = val
   }
-
 }

@@ -8,9 +8,6 @@ import { AppComponent } from './app.component';
 import { TetiereComponent } from './tetiere/tetiere.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormulaireSaisieClientComponent } from './formulaire-saisie-client/formulaire-saisie-client.component';
-import { RecapSaisieClientComponent } from './recap-saisie-client/recap-saisie-client.component';
-import { ErrorDirective } from './error.directive';
-import { PhoneNumberPipe } from './phone-number.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { FilterPipe } from './filter.pipe';
@@ -31,9 +28,6 @@ const routes: Routes = [
     AppComponent,
     TetiereComponent,
     FooterComponent,
-    RecapSaisieClientComponent,
-    ErrorDirective,
-    PhoneNumberPipe,
     CatalogueComponent,
     FilterPipe,
     TotemComponent,
