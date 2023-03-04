@@ -7,20 +7,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TetiereComponent } from './tetiere/tetiere.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormulaireSaisieClientComponent } from './formulaire-saisie-client/formulaire-saisie-client.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { FilterPipe } from './filter.pipe';
 import { TotemComponent } from './totem/totem.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { LoginComponent } from './login/login.component';
 import { ClientModule } from './client/client.module';
 
 const routes: Routes = [
-  { path: 'accueil', component: AccueilComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'compte', component: FormulaireSaisieClientComponent },
-  { path: 'catalogue', component: CatalogueComponent },
+  { path: '', loadChildren: () => import('./app-routing.module').then(m => m.AppRoutingModule) },
+  { path: 'client', loadChildren: () => import('./client-routing.module').then(m => m.ClientRoutingModule) },
+  // { path: 'catalogue', loadChildren: () => import('./catalogue/catalogue.component').then(m => m.CatalogueComponent) },
+  // { path: 'detail/:id', loadChildren: () => import('./detail-article/detail-article.module').then(m => m.DetailArticleModule) },
+  // { path: 'panier', loadChildren: () => import('./panier/panier.module').then(m => m.PanierModule) },
 ];
 
 @NgModule({

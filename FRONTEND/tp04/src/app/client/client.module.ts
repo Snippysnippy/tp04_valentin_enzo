@@ -7,6 +7,8 @@ import { FormulaireSaisieClientComponent } from '../formulaire-saisie-client/for
 import { RecapSaisieClientComponent } from '../recap-saisie-client/recap-saisie-client.component';
 import { PhoneNumberPipe } from '../phone-number.pipe';
 import { ErrorDirective } from '../error.directive';
+import { RouterModule } from '@angular/router';
+import { ClientRoutingModule } from '../client-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { ErrorDirective } from '../error.directive';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ClientRoutingModule
   ],
   exports: [
     LoginComponent,
     FormulaireSaisieClientComponent,
-    RecapSaisieClientComponent
+    RecapSaisieClientComponent,
+    RouterModule
   ],
 })
 export class ClientModule {
