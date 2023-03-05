@@ -1,8 +1,10 @@
-import { State, Action, StateContext, Selector } from '@ngxs/store';
+import { Injectable } from '@angular/core';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { Product } from '../models/product.model';
 import { AjouterArticle } from './panier.actions';
 
 export interface PanierStateModel {
-  articles: string[];
+  articles: Product[];
 }
 
 @State<PanierStateModel>({
@@ -11,20 +13,20 @@ export interface PanierStateModel {
     articles: []
   }
 })
+@Injectable()
 export class PanierState {
 
+  @Selector()
+  static nombreArticles(state: PanierStateModel): number {
+    return state.articles.length;
+  }
+
   @Action(AjouterArticle)
-  ajouterArticle(ctx: StateContext<PanierStateModel>, { payload }: AjouterArticle) {
+  ajouterArticle(ctx: StateContext<PanierStateModel>, action: AjouterArticle) {
     const state = ctx.getState();
     ctx.patchState({
-      articles: [...state.articles, payload]
+      articles: [...state.articles, action.produit]
     });
   }
-}
 
-export class PanierSelectors {
-    @Selector([PanierState])
-    public static nombreArticles(state: PanierStateModel): number {
-      return state.articles.length;
-    }
-  }
+}

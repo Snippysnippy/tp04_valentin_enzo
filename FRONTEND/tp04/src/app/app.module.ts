@@ -14,13 +14,11 @@ import { TotemComponent } from './totem/totem.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ClientModule } from './client/client.module';
 import { NgxsModule } from '@ngxs/store';
+import { PanierModule } from './panier/panier.module';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./app-routing.module').then(m => m.AppRoutingModule) },
   { path: 'client', loadChildren: () => import('./client-routing.module').then(m => m.ClientRoutingModule) },
-  // { path: 'catalogue', loadChildren: () => import('./catalogue/catalogue.component').then(m => m.CatalogueComponent) },
-  // { path: 'detail/:id', loadChildren: () => import('./detail-article/detail-article.module').then(m => m.DetailArticleModule) },
-  // { path: 'panier', loadChildren: () => import('./panier/panier.module').then(m => m.PanierModule) },
 ];
 
 @NgModule({
@@ -40,7 +38,8 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     ClientModule,
-    NgxsModule.forRoot()
+    NgxsModule.forRoot(),
+    PanierModule
   ],
   exports: [RouterModule],
   providers: [],

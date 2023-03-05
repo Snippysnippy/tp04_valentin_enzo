@@ -4,12 +4,8 @@ import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { AjouterArticle } from '../panier/panier.actions';
 import { Store } from '@ngxs/store';
+import { Product } from '../models/product.model';
 
-interface Product {
-  name: string;
-  description: string;
-  price: number;
-}
 
 @Component({
   selector: 'app-catalogue',
