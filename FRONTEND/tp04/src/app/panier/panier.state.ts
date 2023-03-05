@@ -21,6 +21,11 @@ export class PanierState {
     return state.articles.length;
   }
 
+  @Selector()
+  static produitsPanier(state: PanierStateModel) {
+    return state.articles;
+  }
+
   @Action(AjouterArticle)
   ajouterArticle(ctx: StateContext<PanierStateModel>, action: AjouterArticle) {
     const state = ctx.getState();
