@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Product } from './models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,13 @@ export class CatalogueService {
   getBouchon(): Observable<any> {
     return this.http.get(environment.catalogue);
   }
+
+  getProduitById(id: number): Observable<Product> {
+    return this.getBouchon().pipe(
+      map(produits => produits.find((produit: { id: number; }) => produit.id === id))
+    );
+  }
+  
     
   //TP04 Modifications -> client.service
   // postClient(clientData: any) {

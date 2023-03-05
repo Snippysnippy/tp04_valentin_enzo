@@ -15,6 +15,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ClientModule } from './client/client.module';
 import { NgxsModule } from '@ngxs/store';
 import { PanierModule } from './panier/panier.module';
+import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./app-routing.module').then(m => m.AppRoutingModule) },
@@ -30,6 +31,7 @@ const routes: Routes = [
     FilterPipe,
     TotemComponent,
     AccueilComponent,
+    DetailProduitComponent,
   ],
   imports: [
     FormsModule,
