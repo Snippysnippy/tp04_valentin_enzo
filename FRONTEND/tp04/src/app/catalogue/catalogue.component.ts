@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CatalogueService } from '../catalogue.service';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { AjouterArticle } from '../panier/panier.actions';
+import { Store } from '@ngxs/store';
 
 interface Product {
   name: string;
@@ -19,7 +21,11 @@ export class CatalogueComponent implements OnInit {
   filteredProducts: Product[] = [];
   searchControl = new FormControl('');
 
-  constructor(private service: CatalogueService) { }
+  constructor(private service: CatalogueService, private store: Store) { }
+
+  public ajouterArticle(article: any) {
+    this.store.dispatch(new AjouterArticle(article));
+  }
 
   ngOnInit() {
     //TP3-02

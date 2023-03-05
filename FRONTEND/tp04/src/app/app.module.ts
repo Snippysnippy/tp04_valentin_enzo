@@ -13,6 +13,7 @@ import { FilterPipe } from './filter.pipe';
 import { TotemComponent } from './totem/totem.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ClientModule } from './client/client.module';
+import { NgxsModule } from '@ngxs/store';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./app-routing.module').then(m => m.AppRoutingModule) },
@@ -38,7 +39,8 @@ const routes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    ClientModule
+    ClientModule,
+    NgxsModule.forRoot()
   ],
   exports: [RouterModule],
   providers: [],
