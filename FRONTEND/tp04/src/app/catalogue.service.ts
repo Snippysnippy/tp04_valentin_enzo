@@ -13,17 +13,18 @@ export class CatalogueService {
     return this.http.get(environment.catalogue);
   }
     
-  postClient(clientData: any) {
-    return this.http.post('/api/clients', clientData);
-  }
+  //TP04 Modifications -> client.service
+  // postClient(clientData: any) {
+  //   return this.http.post('/api/clients', clientData);
+  // }
 
-  getClient(clientId: any) {
-    return this.http.get(`/api/clients/${clientId}`);
-  }
+  // getClient(clientId: any) {
+  //   return this.http.get(`/api/clients/${clientId}`);
+  // }
 
-  postLogin(loginData: any) {
-    return this.http.post('/api/login', loginData);
-  }
+  // postLogin(loginData: any) {
+  //   return this.http.post('/api/login', loginData);
+  // }
 
   // TP03-1
   // getCatalogue() {
